@@ -52,15 +52,60 @@ const deleteChar = () => {
 }
 
 input.addEventListener('keyup', e => {
-	if (['1', '2', '3', '4', '5', '7', '8', '9', , '0', '*', '/', '+', '-'].indexOf(e.key) === -1) {
+	if (e.keyCode == 13) {
+		equalValues()
+	} else if (
+		//backspace
+		e.keyCode == 8 ||
+		// numbers
+		e.keyCode == 16 ||
+		e.keyCode == 48 ||
+		e.keyCode == 49 ||
+		e.keyCode == 50 ||
+		e.keyCode == 51 ||
+		e.keyCode == 52 ||
+		e.keyCode == 53 ||
+		e.keyCode == 54 ||
+		e.keyCode == 55 ||
+		e.keyCode == 56 ||
+		e.keyCode == 57 ||
+		e.keyCode == 58 ||
+		e.keyCode == 59 ||
+		// numpad
+		e.keyCode == 96 ||
+		e.keyCode == 97 ||
+		e.keyCode == 98 ||
+		e.keyCode == 99 ||
+		e.keyCode == 100 ||
+		e.keyCode == 101 ||
+		e.keyCode == 102 ||
+		e.keyCode == 103 ||
+		e.keyCode == 104 ||
+		e.keyCode == 105 ||
+		// operators +-/ with shift
+		e.keyCode == 106 ||
+		e.keyCode == 107 ||
+		e.keyCode == 109 ||
+		e.keyCode == 110 ||
+		e.keyCode == 111 ||
+		e.keyCode == 187 ||
+		e.keyCode == 189 ||
+		e.keyCode == 191 ||
+		e.keyCode == 190
+	) {
+		checkLength()
+	} else {
 		input.value = ''
 	}
-	checkLength()
 })
 
 btnEqual.addEventListener('click', equalValues)
+input.onkeyup = function (e) {
+	if (e.keyCode == 13) {
+		equalValues()
+	}
+}
 btnReset.addEventListener('click', resetInput)
 btnDelete.addEventListener('click', deleteChar)
 
-// zrobić obługę z klawiatury
-// MODAL DODAĆ
+// dodac modal
