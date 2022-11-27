@@ -107,5 +107,3 @@ input.onkeyup = function (e) {
 }
 btnReset.addEventListener('click', resetInput)
 btnDelete.addEventListener('click', deleteChar)
-
-// dodac modal
