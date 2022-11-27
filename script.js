@@ -5,15 +5,21 @@ const btnEqual = document.querySelector('.equal-btn')
 const btnDelete = document.querySelector('.delete-btn')
 
 const equalValues = () => {
-	try {
-		const equalV = eval(input.value)
-		if (equalV !== undefined) {
-			input.value = equalV
+	let lengthValue = input.value
+	if (lengthValue.slice(-2) !== '/0') {
+		try {
+			const equalV = eval(input.value)
+			if (equalV !== undefined) {
+				input.value = equalV
+			}
+		} catch (e) {
+			if (e instanceof SyntaxError) {
+				alert('Wprowadź poprawne działanie!')
+			}
+			input.value = ''
 		}
-	} catch (e) {
-		if (e instanceof SyntaxError) {
-			alert('Wprowadź poprawne działanie!')
-		}
+	} else {
+		alert('Cholero nie dziel przez ZERO!')
 		input.value = ''
 	}
 
